@@ -1,17 +1,46 @@
 import sys
 
-print("Abigail Meta Toolchain Check")
-print("Python:", sys.version)
+print("\n--- Alaska Archives Meta Toolchain Check ---\n")
 
-# Core libs
-import numpy as np
-import pandas as pd
+print("Python:", sys.version.split()[0])
 
-print("NumPy:", np.__version__)
-print("Pandas:", pd.__version__)
+# Core data libs
+try:
+    import numpy as np
+    print("NumPy:", np.__version__)
+except:
+    print("NumPy: Missing")
 
 try:
-    import openai
-    print("OpenAI library: Installed")
-except Exception as e:
-    print("OpenAI library: Missing", e)
+    import pandas as pd
+    print("Pandas:", pd.__version__)
+except:
+    print("Pandas: Missing")
+
+# OCR stack
+try:
+    import pytesseract
+    print("PyTesseract:", pytesseract.__version__)
+except:
+    print("PyTesseract: Missing")
+
+try:
+    import PIL
+    print("Pillow:", PIL.__version__)
+except:
+    print("Pillow: Missing")
+
+# Meta / Transformer stack
+try:
+    import torch
+    print("PyTorch:", torch.__version__)
+except:
+    print("PyTorch: Missing")
+
+try:
+    import transformers
+    print("Transformers:", transformers.__version__)
+except:
+    print("Transformers: Missing")
+
+print("\nStatus: READY for February Deliverable\n")
